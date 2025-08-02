@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <div className="flex items-center justify-between">
       <Image
-        src="/coffee-shop.svg"
+        src="/icons/coffee-shop.svg"
         width={85}
         height={40}
         alt="Logo Coffee Shop"
@@ -12,7 +12,7 @@ export const Header = () => {
       <div className="flex items-center gap-3">
         <div className="bg-purple-light text-purple-dark flex items-center gap-1 p-2 rounded-[6px]">
           <Image
-            src="/location.svg"
+            src="/icons/location.svg"
             width={15}
             height={19}
             alt="Logo Localização"
