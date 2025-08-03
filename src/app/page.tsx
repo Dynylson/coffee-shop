@@ -1,3 +1,4 @@
+import { CoffessSection } from '@/components/CoffeesSection';
 import { HeroSection } from '@/components/HeroSection';
 import { LegendIcon } from '@/components/HeroSection/components/legend-icon';
 
@@ -24,14 +25,20 @@ export default function Home() {
   ];
 
   return (
-    <HeroSection
-      title={
-        <>
-          Encontre o café perfeito <br /> para qualquer hora do dia
-        </>
-      }
-      subtitle="Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora"
-      legends={legendIcons}
-    />
+    <main>
+      <div className="mb-[114px]">
+        <HeroSection
+          title={
+            <>
+              Encontre o café perfeito <br /> para qualquer hora do dia
+            </>
+          }
+          subtitle="Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora"
+          legends={legendIcons}
+        />
+      </div>
+
+      <CoffessSection />
+    </main>
   );
 }

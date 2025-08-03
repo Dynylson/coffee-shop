@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="font-roboto bg-base-background antialiased max-w-[1440px] mx-auto px-2">
+      <body className="font-roboto bg-base-background antialiased max-w-[1440px] mx-auto px-2 mb-2">
         <header className="mt-4 sm:mt-8 h-[80px] sm:h-[104px]">
           <Header />
         </header>
