@@ -20,7 +20,12 @@ export const Header = () => {
           <p className="text-roboto-sm">Garanhuns, PE</p>
         </div>
         <button className="flex items-center justify-center bg-yellow-light w-[38px] h-[38px] rounded-[6px]">
-          <Image src="/cart.svg" width={18} height={17} alt="Logo Carrinho" />
+          <Image
+            src="/icons/cart.svg"
+            width={18}
+            height={17}
+            alt="Logo Carrinho"
+          />
         </button>
       </div>
     </div>
