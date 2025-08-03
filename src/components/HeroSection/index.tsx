@@ -27,7 +27,7 @@ export const HeroSection = ({ title, subtitle, legends }: HeroSectionProps) => {
           ))}
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="hidden lg:flex justify-center">
         <Image
           src="/coffee-delivery.png"
           width={476}
