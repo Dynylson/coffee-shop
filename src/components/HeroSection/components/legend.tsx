@@ -1,11 +1,14 @@
-import { ILegend } from '../types';
+import { ReactNode } from 'react';
 
-export type LegendProps = ILegend;
+export interface LegendProps {
+  icon: ReactNode;
+  description: string;
+}
 
 export const Legend = ({ icon, description }: LegendProps) => {
   return (
-    <div>
-      <p>{icon}</p>
+    <div className="flex items-center gap-3 text-base-text">
+      {icon}
       <p>{description}</p>
     </div>
   );
