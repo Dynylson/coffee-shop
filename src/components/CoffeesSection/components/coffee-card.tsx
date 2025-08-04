@@ -21,6 +21,16 @@ export const CoffeeCard = ({
 }: CoffeeCardProps) => {
   const [quantity, setQuantity] = useState(1);
 
+  function handleIncreaseQuantity() {
+    setQuantity((state) => state + 1);
+  }
+
+  function handleDecreaseQuantity() {
+    if (quantity === 1) return;
+
+    setQuantity((state) => state - 1);
+  }
+
   return (
     <div className="flex flex-col items-center bg-base-card px-5 pb-5 rounded-tl-[3px] rounded-tr-[33px] rounded-bl-[33px] rounded-br-[3px]">
       <Image
@@ -54,15 +64,15 @@ export const CoffeeCard = ({
         </p>
         <div className="flex items-center gap-2 ml-[22px]">
           <div className="flex items-center gap-2 bg-base-button text-base-title text-roboto-md rounded-[6px] p-2">
-            <button>
-              <Minus className="text-purple" size={18} />
+            <button onClick={handleDecreaseQuantity}>
+              <Minus className="text-purple cursor-pointer" size={18} />
             </button>
             {quantity}
-            <button>
-              <Plus className="text-purple" size={18} />
+            <button onClick={handleIncreaseQuantity}>
+              <Plus className="text-purple cursor-pointer" size={18} />
             </button>
           </div>
-          <div className="bg-purple-dark rounded-[6px] p-3">
+          <div className="bg-purple-dark rounded-[6px] p-3 cursor-pointer">
             <Image
               src="/icons/cart-white.svg"
               width={19}
