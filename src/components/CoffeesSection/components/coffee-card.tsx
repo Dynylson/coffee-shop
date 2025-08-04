@@ -1,16 +1,12 @@
 'use client';
 
+import { useCartStore } from '@/stores/cart-store';
+import { Coffee } from '@/types';
 import { Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
-interface CoffeeCardProps {
-  image: string;
-  tags: string[];
-  title: string;
-  description: string;
-  price: string;
-}
+type CoffeeCardProps = Coffee;
 
 export const CoffeeCard = ({
   image,
@@ -19,6 +15,8 @@ export const CoffeeCard = ({
   description,
   price,
 }: CoffeeCardProps) => {
+  const addProduct = useCartStore((state) => state.addProduct);
+
   const [quantity, setQuantity] = useState(1);
 
   function handleIncreaseQuantity() {
@@ -29,6 +27,18 @@ export const CoffeeCard = ({
     if (quantity === 1) return;
 
     setQuantity((state) => state - 1);
+  }
+
+  function handleAddCoffee() {
+    for (let i = 1; i <= quantity; i++) {
+      addProduct({
+        image,
+        tags,
+        title,
+        description,
+        price,
+      });
+    }
   }
 
   return (
@@ -72,14 +82,17 @@ export const CoffeeCard = ({
               <Plus className="text-purple cursor-pointer" size={18} />
             </button>
           </div>
-          <div className="bg-purple-dark rounded-[6px] p-3 cursor-pointer">
+          <button
+            onClick={handleAddCoffee}
+            className="bg-purple-dark rounded-[6px] p-3 cursor-pointer"
+          >
             <Image
               src="/icons/cart-white.svg"
               width={19}
               height={18}
               alt="Carrinho"
             />
-          </div>
+          </button>
         </div>
       </div>
     </div>

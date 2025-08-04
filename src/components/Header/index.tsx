@@ -1,6 +1,11 @@
+'use client';
+
+import { useCartStore } from '@/stores/cart-store';
 import Image from 'next/image';
 
 export const Header = () => {
+  const productsQuantity = useCartStore((state) => state.products).length;
+
   return (
     <div className="flex items-center justify-between">
       <Image
@@ -19,13 +24,19 @@ export const Header = () => {
           />
           <p className="text-roboto-sm">Garanhuns, PE</p>
         </div>
-        <button className="flex items-center justify-center bg-yellow-light w-[38px] h-[38px] rounded-[6px]">
+        <button className="relative flex items-center justify-center bg-yellow-light w-[38px] h-[38px] rounded-[6px]">
           <Image
             src="/icons/cart.svg"
             width={18}
             height={17}
             alt="Logo Carrinho"
           />
+          <span
+            className="flex items-center justify-center absolute top-[-8px] right-[-8px] bg-yellow-dark 
+            text-base-white text-roboto-xs font-bold rounded-full w-5 h-5"
+          >
+            {productsQuantity}
+          </span>
         </button>
       </div>
     </div>
